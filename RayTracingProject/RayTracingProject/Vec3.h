@@ -19,10 +19,12 @@ class Vec3{
 
 
 		Vec3 operator-();
+		bool operator==(Vec3 other);
 		Vec3 operator+(Vec3 other);
 		Vec3 operator-(Vec3 other);
+		float operator*(Vec3 other);
 		Vec3 operator*(float val);
 		Vec3 operator/(float val);
-		float operator*(Vec3 other);
 		Vec3 operator^(Vec3 other);
+		Vec3 operator[](Vec3 other);
 };

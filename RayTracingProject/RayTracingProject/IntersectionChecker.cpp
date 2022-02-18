@@ -27,5 +27,30 @@ bool IntersectionChecker::checkIntersection(Ray ray, Sphere sphere, Vec3* out, f
 }
 
 bool IntersectionChecker::checkIntersection(Ray ray, Plane plane, Vec3* out, float* dist) {
+	ray.direction.normalize();
+
+	Vec3 normal = plane.base[0] ^ plane.base[1];
+	Vec3 eq = normal[plane.position];
+	float d = eq.x + eq.y + eq.z;
+
+	float div = (normal.x * ray.direction.x + normal.y * ray.direction.y + normal.z * ray.direction.z);
+
+	if (div < 0.01 && div > -0.01)
+		return false;
+
+	*dist = -(d - normal.x * ray.origin.x - normal.y * ray.origin.y - normal.z * ray.origin.z) / div;
+	*out = ray.origin + ray.direction * (*dist);
+	/*
+	float i = ((*out) - plane.position)[plane.base[0]].getLength(), j = ((*out) - plane.position)[plane.base[1]].getLength();
+
+	if (plane.x > 0.01 && i > plane.x)
+		return false;
+	if (plane.y > 0.01 && j > plane.y)
+		return false;*/
+
+	return true;
+}
+
+bool IntersectionChecker::checkIntersection(Ray ray, Triangle triangle, Vec3* out, float* dist) {
 	throw "Not implemented yet";
 }

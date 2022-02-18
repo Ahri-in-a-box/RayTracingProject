@@ -65,12 +65,20 @@ Vec3 Vec3::operator-(){
 	return Vec3(-this->x, -this->y, -this->z);
 }
 
+bool Vec3::operator==(Vec3 other) {
+	return (this->x < other.x + 0.01 && this->x > other.x - 0.01) && (this->y < other.y + 0.01 && this->y > other.y - 0.01) && (this->z < other.z + 0.01 && this->z > other.z - 0.01);
+}
+
 Vec3 Vec3::operator+(Vec3 other) {
 	return Vec3(this->x + other.x, this->y + other.y, this->z + other.z);
 }
 
 Vec3 Vec3::operator-(Vec3 other) {
 	return Vec3(this->x - other.x, this->y - other.y, this->z - other.z);
+}
+
+float Vec3::operator*(Vec3 other) {
+	return this->x * other.x + this->y * other.y + this->z * other.z;
 }
 
 Vec3 Vec3::operator*(float val) {
@@ -81,10 +89,10 @@ Vec3 Vec3::operator/(float val) {
 	return Vec3(this->x / val, this->y / val, this->z / val);
 }
 
-float Vec3::operator*(Vec3 other) {
-	return this->x * other.x + this->y * other.y + this->z * other.z;
+Vec3 Vec3::operator^(Vec3 other) {
+	return Vec3(this->y * other.z - this->z * other.y, this->z * other.x - this->x * other.z, this->x * other.y - this->y * other.x);
 }
 
-Vec3 Vec3::operator^(Vec3 other) {
-	throw "Not implemented yet";
+Vec3 Vec3::operator[](Vec3 other) {
+	return Vec3(this->x * other.x, this->y * other.y, this->z * other.z);
 }
