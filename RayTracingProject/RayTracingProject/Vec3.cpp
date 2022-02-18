@@ -52,11 +52,11 @@ Vec3 Vec3::getNormalized() {
 }
 
 Vec3 Vec3::getReflected(Vec3 normal) {
-	throw "Not implemented yet";
-	//Normalisation des deux vecteurs
-	//Calcul du produit scalaire
-	//Calcul de l'angle
-	//Calcul du réfléchi
+	Vec3 normalized = this->operator-().getNormalized();
+	normal.normalize();
+	
+	return normal * 2 * (normal * normalized) - normalized;
+
 }
 
 

@@ -1,8 +1,8 @@
 #pragma once
 #include "3DObject.h"
 
-class Sphere : C3DObject{
-	protected:
+class Sphere : public C3DObject{
+	public:
 		float size; //< Représente le rayon de la sphere
 
 		Sphere();

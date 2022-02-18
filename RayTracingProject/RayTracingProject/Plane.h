@@ -1,8 +1,8 @@
 #pragma once
 #include "3DObject.h"
 
-class Plane : C3DObject{
-	protected:
+class Plane : public C3DObject{
+	public:
 		Vec3 base[2]; //< Représente la base du plan (espace 2D)
 		float x, y; //< Représente la taille du plan selon ses vecteurs générateur
 
