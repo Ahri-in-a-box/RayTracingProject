@@ -18,7 +18,7 @@ int main() {
 	printf("\n");
 
 
-	ray1.origin = Vec3(-1, -1, 0);
+	ray1.origin = Vec3(1, -1, 0);
 	Plane plane1 = Plane(Vec3(0, 0, -3), 800, 450, Vec3(1, 0, 0), Vec3(0, -1, 0));
 	Plane plane2 = Plane(Vec3(0, 0, -3), 800, 450, Vec3(1, 0, -1), Vec3(0, -1, 0));
 

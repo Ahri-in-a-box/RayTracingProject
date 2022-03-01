@@ -1,4 +1,5 @@
 #include "IntersectionChecker.h"
+#include "Solver.h"
 #include <math.h>
 
 bool IntersectionChecker::checkIntersection(Ray ray, Sphere sphere, Vec3* out, float* dist) {
@@ -38,15 +39,19 @@ bool IntersectionChecker::checkIntersection(Ray ray, Plane plane, Vec3* out, flo
 	if (div < 0.01 && div > -0.01)
 		return false;
 
-	*dist = -(d - normal.x * ray.origin.x - normal.y * ray.origin.y - normal.z * ray.origin.z) / div;
+	*dist = (d - normal.x * ray.origin.x - normal.y * ray.origin.y - normal.z * ray.origin.z) / div;
 	*out = ray.origin + ray.direction * (*dist);
-	/*
-	float i = ((*out) - plane.position)[plane.base[0]].getLength(), j = ((*out) - plane.position)[plane.base[1]].getLength();
 
-	if (plane.x > 0.01 && i > plane.x)
+	Vec3 inter = (*out) - plane.position;
+
+	Vec3 res = planePositionToBaseCoord(plane, inter);
+
+	if (res.z < -0.1)
 		return false;
-	if (plane.y > 0.01 && j > plane.y)
-		return false;*/
+	if (plane.x > -0.01 && (res.x < -0.01 || res.x > plane.x + 0.01))
+		return false;
+	if (plane.y > -0.01 && (res.y < -0.01 || res.y > plane.y + 0.01))
+		return false;
 
 	return true;
 }
