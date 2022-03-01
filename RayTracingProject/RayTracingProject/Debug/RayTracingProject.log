@@ -1,10 +1,1 @@
-﻿  IntersectionChecker.cpp
-  Solver.cpp
-C:\Users\Admin\Desktop\RayTracing\RayTracingProject\RayTracingProject\RayTracingProject\Solver.cpp(31,43): warning C4244:  'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Admin\Desktop\RayTracing\RayTracingProject\RayTracingProject\RayTracingProject\Solver.cpp(61,43): warning C4244:  'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Admin\Desktop\RayTracing\RayTracingProject\RayTracingProject\RayTracingProject\Solver.cpp(92,43): warning C4244:  'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Admin\Desktop\RayTracing\RayTracingProject\RayTracingProject\RayTracingProject\Solver.cpp(121,37): warning C4244:  'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Admin\Desktop\RayTracing\RayTracingProject\RayTracingProject\RayTracingProject\Solver.cpp(147,43): warning C4244:  'argument': conversion from 'int' to 'float', possible loss of data
-  Generating Code...
-C:\Users\Admin\Desktop\RayTracing\RayTracingProject\RayTracingProject\RayTracingProject\Solver.cpp(176,37): warning C4244:  'argument': conversion from 'int' to 'float', possible loss of data
-  RayTracingProject.vcxproj -> C:\Users\Admin\Desktop\RayTracing\RayTracingProject\RayTracingProject\bin\RayTracingProject.exe
+﻿  RayTracingProject.vcxproj -> C:\Users\Admin\Desktop\RayTracing\RayTracingProject\RayTracingProject\bin\RayTracingProject.exe

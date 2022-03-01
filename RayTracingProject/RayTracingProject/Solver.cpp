@@ -28,7 +28,7 @@ Vec3 _C12(Plane plane, Vec3 inter) {
 	float r1 = (inter.x - plane.base[1].x * r2) / plane.base[0].x;
 	float ver = plane.base[0].z * r1 + plane.base[1].z * r2;
 
-	return Vec3(r1, r2, ver > inter.z + 0.01 && ver < inter.z - 0.01 ? 1 : -1);
+	return Vec3(r1, r2, ver - inter.z < 0.01f && ver - inter.z > -0.01f ? 1 : -1);
 }
 
 Vec3 _C13(Plane plane, Vec3 inter) {
@@ -58,7 +58,7 @@ Vec3 _C13(Plane plane, Vec3 inter) {
 	float r1 = (inter.x - plane.base[1].x * r2) / plane.base[0].x;
 	float ver = plane.base[0].y * r1;
 
-	return Vec3(r1, r2, ver > inter.z + 0.01 && ver < inter.z - 0.01 ? 1 : -1);
+	return Vec3(r1, r2, ver - inter.z < 0.01f && ver - inter.z > -0.01f ? 1 : -1);
 }
 
 Vec3 _C21(Plane plane, Vec3 inter) {
@@ -89,7 +89,7 @@ Vec3 _C21(Plane plane, Vec3 inter) {
 	float ver = plane.base[0].z * r1 + plane.base[1].z * r2;
 
 
-	return Vec3(r1, r2, ver > inter.z + 0.01 && ver < inter.z - 0.01 ? 1 : -1);
+	return Vec3(r1, r2, ver - inter.z < 0.01f && ver - inter.z > -0.01f ? 1 : -1);
 }
 
 Vec3 _C23(Plane plane, Vec3 inter) {
@@ -144,7 +144,7 @@ Vec3 _C31(Plane plane, Vec3 inter) {
 	float r1 = (inter.z * plane.base[1].x - inter.x) / (plane.base[0].z * plane.base[1].x);
 	float ver = plane.base[1].z * r2;
 
-	return Vec3(r1, r2, ver > inter.z + 0.01 && ver < inter.z - 0.01 ? 1 : -1);
+	return Vec3(r1, r2, ver - inter.z < 0.01f && ver - inter.z > -0.01f ? 1 : -1);
 }
 
 Vec3 _C32(Plane plane, Vec3 inter) {
