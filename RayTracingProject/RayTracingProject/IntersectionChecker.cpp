@@ -38,8 +38,8 @@ bool IntersectionChecker::checkIntersection(Ray ray, Plane plane, Vec3* out, flo
 	if (div < 0.01 && div > -0.01)
 		return false;
 
-	*dist = -(d - normal.x * ray.origin.x - normal.y * ray.origin.y - normal.z * ray.origin.z) / div;
-	*out = ray.origin + ray.direction * (*dist);
+	*dist = (d - normal.x * ray.origin.x - normal.y * ray.origin.y - normal.z * ray.origin.z) / div;
+	*out = ray.origin + ray.direction * (-(*dist));
 	/*
 	float i = ((*out) - plane.position)[plane.base[0]].getLength(), j = ((*out) - plane.position)[plane.base[1]].getLength();
 

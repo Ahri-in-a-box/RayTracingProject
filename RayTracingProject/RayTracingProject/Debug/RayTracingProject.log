@@ -1,2 +1,9 @@
-﻿  IntersectionChecker.cpp
-  RayTracingProject.vcxproj -> C:\Users\Demo\Desktop\4A\XR\RayTracing\RayTracingProject\RayTracingProject\bin\RayTracingProject.exe
+﻿  test.cpp
+C:\Users\Admin\Desktop\RayTracing\RayTracingProject\RayTracingProject\RayTracingProject\test.cpp(16,57): warning C4305:  'argument': truncation from 'double' to 'float'
+C:\Users\Admin\Desktop\RayTracing\RayTracingProject\RayTracingProject\RayTracingProject\test.cpp(32,38): warning C4244:  'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Admin\Desktop\RayTracing\RayTracingProject\RayTracingProject\RayTracingProject\test.cpp(32,25): warning C4244:  'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Admin\Desktop\RayTracing\RayTracingProject\RayTracingProject\RayTracingProject\test.cpp(39,22): warning C4018:  '<': signed/unsigned mismatch
+C:\Users\Admin\Desktop\RayTracing\RayTracingProject\RayTracingProject\RayTracingProject\test.cpp(78,23): warning C4244:  '=': conversion from 'float' to 'BYTE', possible loss of data
+C:\Users\Admin\Desktop\RayTracing\RayTracingProject\RayTracingProject\RayTracingProject\test.cpp(79,25): warning C4244:  '=': conversion from 'float' to 'BYTE', possible loss of data
+C:\Users\Admin\Desktop\RayTracing\RayTracingProject\RayTracingProject\RayTracingProject\test.cpp(80,24): warning C4244:  '=': conversion from 'float' to 'BYTE', possible loss of data
+  RayTracingProject.vcxproj -> C:\Users\Admin\Desktop\RayTracing\RayTracingProject\RayTracingProject\bin\RayTracingProject.exe

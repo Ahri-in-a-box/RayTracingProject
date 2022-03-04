@@ -10,6 +10,10 @@ C3DObject::C3DObject(Vec3 position) {
 	this->material = nullptr;
 }
 
+C3DObject::~C3DObject() {
+
+}
+
 C3DObject* C3DObject::setMaterial(Material* material) {
 	if (!material)
 		throw "Invalid material";
@@ -20,4 +24,8 @@ C3DObject* C3DObject::setMaterial(Material* material) {
 C3DObject* C3DObject::removeMaterial() {
 	this->material = nullptr;
 	return this;
+}
+
+Material C3DObject::getMaterial(){
+	return *(this->material);
 }

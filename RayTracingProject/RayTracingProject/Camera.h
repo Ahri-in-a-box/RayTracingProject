@@ -13,5 +13,11 @@ class Camera{
 		Camera(float fov, Vec3 position, Vec3 rotation);
 		Camera(float fov);
 		Camera(float fov, Vec3 position);
+
+		void setFocaleFromScreenSize(int width, int height);
+		float getFocale();
+
+	private:
+		float focale;
 };
 

@@ -8,9 +8,11 @@ class C3DObject{
 		
 		C3DObject();
 		C3DObject(Vec3 position);
+		virtual ~C3DObject();
 
 		C3DObject* setMaterial(Material* mat);
 		C3DObject* removeMaterial();
+		Material getMaterial();
 
 	protected:
 		Material* material;

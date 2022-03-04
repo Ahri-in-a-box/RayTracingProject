@@ -7,7 +7,7 @@
 class Scene{
 	public:
 		Camera* activeCam;
-		std::vector<Camera> alternativeCam;
+		std::vector<Camera> alternativeCams;
 		std::vector<Light> lights;
 		std::vector<C3DObject*> Objects; //< Tableau contenant les objets 3D de la scene
 

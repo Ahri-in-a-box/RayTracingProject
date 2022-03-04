@@ -149,6 +149,7 @@
     <ClCompile Include="Material.cpp" />
     <ClCompile Include="Plane.cpp" />
     <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="Screen.cpp" />
     <ClCompile Include="test.cpp" />
     <ClCompile Include="Sphere.cpp" />
     <ClCompile Include="Triangle.cpp" />
@@ -164,6 +165,7 @@
     <ClInclude Include="Plane.h" />
     <ClInclude Include="Ray.h" />
     <ClInclude Include="Scene.h" />
+    <ClInclude Include="Screen.h" />
     <ClInclude Include="Sphere.h" />
     <ClInclude Include="Triangle.h" />
     <ClInclude Include="Vec3.h" />
