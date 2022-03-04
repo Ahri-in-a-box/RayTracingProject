@@ -28,3 +28,5 @@ class Vec3{
 		Vec3 operator^(Vec3 other);
 		Vec3 operator[](Vec3 other);
 };
+
+Vec3 clampColor(Vec3 color);

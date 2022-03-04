@@ -39,7 +39,7 @@ bool IntersectionChecker::checkIntersection(Ray ray, Plane plane, Vec3* out, flo
 		return false;
 
 	*dist = (d - normal.x * ray.origin.x - normal.y * ray.origin.y - normal.z * ray.origin.z) / div;
-	*out = ray.origin + ray.direction * (-(*dist));
+	*out = ray.origin + ray.direction * (*dist);
 	/*
 	float i = ((*out) - plane.position)[plane.base[0]].getLength(), j = ((*out) - plane.position)[plane.base[1]].getLength();
 
@@ -53,4 +53,13 @@ bool IntersectionChecker::checkIntersection(Ray ray, Plane plane, Vec3* out, flo
 
 bool IntersectionChecker::checkIntersection(Ray ray, Triangle triangle, Vec3* out, float* dist) {
 	throw "Not implemented yet";
+}
+
+bool IntersectionChecker::checkIntersection(Ray ray, C3DObject* object, Vec3* out, float* dist) {
+	if (Sphere* tmp = dynamic_cast<Sphere*>(object)) 
+		return IntersectionChecker().checkIntersection(ray, *tmp, out, dist);
+	if (Plane* tmp = dynamic_cast<Plane*>(object))
+		return IntersectionChecker().checkIntersection(ray, *tmp, out, dist);
+	if (Triangle* tmp = dynamic_cast<Triangle*>(object))
+		return IntersectionChecker().checkIntersection(ray, *tmp, out, dist);
 }

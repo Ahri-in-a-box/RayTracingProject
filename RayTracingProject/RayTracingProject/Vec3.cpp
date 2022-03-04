@@ -96,3 +96,19 @@ Vec3 Vec3::operator^(Vec3 other) {
 Vec3 Vec3::operator[](Vec3 other) {
 	return Vec3(this->x * other.x, this->y * other.y, this->z * other.z);
 }
+
+Vec3 clampColor(Vec3 color) {
+	if (color.x > 255)
+		color.x = 255;
+	if (color.x < 0.01)
+		color.x = 0;
+	if (color.y > 255)
+		color.y = 255;
+	if (color.y < 0.01)
+		color.y = 0;
+	if (color.z > 255)
+		color.z = 255;
+	if (color.z < 0.01)
+		color.z = 0;
+	return color;
+}
