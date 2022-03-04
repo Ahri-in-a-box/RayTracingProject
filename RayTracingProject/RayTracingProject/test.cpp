@@ -5,6 +5,7 @@
 
 #define WIDTH 800
 #define HEIGHT 600
+#define Ke 10
 #define DEBUG false
 
 int main() {
@@ -13,14 +14,18 @@ int main() {
 	FIBITMAP* image = FreeImage_Allocate(WIDTH, HEIGHT, 32);
 	Material* mat1 = new Material(Vec3(0, 255, 0));
 	Material* mat2 = new Material(Vec3(255, 0, 0));
-	Light light = Light(Vec3(), 0.8, Vec3(0, 0, -WIDTH * 5));
+	Light light = Light(Vec3(), 0.8, Vec3(150, 150, -100));
+
+
 
 	Scene myScene = Scene();
 	myScene.activeCam = new Camera(90);
 	myScene.activeCam->setFocaleFromScreenSize(WIDTH, HEIGHT);
-	myScene.Objects.push_back(new Sphere(Vec3(0, 0, -myScene.activeCam->getFocale() - 3), 100));
+	myScene.lights.push_back(light);
+
+	myScene.Objects.push_back(new Sphere(Vec3(0, 0, -250), 100));
 	myScene.Objects[0]->setMaterial(mat1);
-	myScene.Objects.push_back(new Plane(Vec3(-300, 300, -myScene.activeCam->getFocale() + 70), 600, 600, Vec3(1, 0, 0), Vec3(0, 1, 0)));
+	myScene.Objects.push_back(new Plane(Vec3(-150, 150, -175), 300, 300, Vec3(1, 0, 0), Vec3(0, 1, 0)));
 	myScene.Objects[1]->setMaterial(mat2);
 
 	float foc = myScene.activeCam->getFocale();
@@ -74,7 +79,29 @@ int main() {
 
 			if (firstInSight) {
 				Material mat = firstInSight->getMaterial();
-				Vec3 pix = mat.color * (mat.ambiance * light.intensity);
+				Vec3 normal, viewVec = (view.origin - outputInfos).getNormalized();
+				float ia = -0.01, id = 0, is = 0;
+
+				if (Sphere* tmp = dynamic_cast<Sphere*>(firstInSight))
+					normal = outputInfos - tmp->position;
+				else
+					if (Plane* tmp = dynamic_cast<Plane*>(firstInSight))
+						normal = tmp->base[0] ^ tmp->base[1];
+
+				normal.normalize();
+
+				for (int z = 0; z < myScene.lights.size(); z++) {
+					Light l = myScene.lights[z];
+					Vec3 lightVec = (l.position - outputInfos).getNormalized();
+					Vec3 h = (lightVec + viewVec) / (lightVec.getLength() + viewVec.getLength());
+
+					if (l.intensity > ia)
+						ia = l.intensity;
+					id += (mat.diffuse * (normal * lightVec)) / (outputInfos - l.position).getLength();
+					is += (mat.specular * powf(normal * h, Ke)) / (outputInfos - l.position).getLength();
+				}
+
+				Vec3 pix = mat.color * (mat.ambiance * ia) + mat.color * (mat.diffuse * id) + Vec3(255, 255, 255) * (mat.specular * is);
 				color.rgbRed = pix.x;
 				color.rgbGreen = pix.y;
 				color.rgbBlue = pix.z;
